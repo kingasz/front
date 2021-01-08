@@ -18,131 +18,131 @@ import TastingDetail from '../components/TastingDetail'
 Vue.use(VueRouter)
 
 const routes = [{
-  path: '/',
-  name: 'Home',
-  component: Home,
-  meta: {
-    rule: 'isPublic'
+    path: '/',
+    name: 'Home',
+    component: Home,
+    meta: {
+      rule: 'isPublic'
+    }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import( /* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/register',
+    name: 'RegisterPage',
+    component: RegisterPage,
+    meta: {
+      rule: 'isPublic'
+    }
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
+    meta: {
+      rule: '*'
+    }
+  },
+  {
+    path: '/beers',
+    name: 'beers',
+    component: Beers,
+    meta: {
+      rule: 'isPublic'
+    }
+  },
+  {
+    path: '/group/:groupId',
+    name: 'Group Details',
+    component: GroupDetail,
+    props: true,
+    meta: {
+      rule: 'isPublic'
+    }
+  },
+  {
+    path: '/beer/:beerId',
+    name: 'Beerdetails',
+    component: BeerDetail,
+    props: true,
+    meta: {
+      rule: 'isLogged'
+    }
+  },
+  {
+    path: '/country/:countryId',
+    name: 'CountryDetail',
+    component: CountryDetail,
+    props: true,
+    meta: {
+      rule: 'isLogged'
+    }
+  },
+  {
+    path: '/type/:typeId',
+    name: 'TypeBeerDetail',
+    component: TypeBeerDetail,
+    props: true,
+    meta: {
+      rule: 'isLogged'
+    }
+  },
+  {
+    path: '/tasting/:tastingId',
+    name: 'TastingDetail',
+    component: TastingDetail,
+    props: true,
+    meta: {
+      rule: 'isLogged'
+    }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: Admin,
+    meta: {
+      rule: 'isAdmin'
+    }
+  },
+  {
+    path: '/admin/users',
+    name: 'userslist',
+    component: UsersList,
+    meta: {
+      rule: 'isAdmin'
+    }
+  },
+  {
+    path: '*',
+    name: 'error',
+    component: error,
+    meta: {
+      rule: '*'
+    }
+  },
+  {
+    path: '/admin/types',
+    name: 'typebeeradmin',
+    component: TypesBeerAdmin,
+    meta: {
+      rule: 'isAdmin'
+    }
+  },
+  {
+    path: '/admin/countries',
+    name: 'countriesadmin',
+    component: CountriesAdmin,
+    meta: {
+      rule: 'isAdmin'
+    }
   }
-},
-{
-  path: '/about',
-  name: 'About',
-  // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
-  component: () =>
-    import(/* webpackChunkName: "about" */ '../views/About.vue')
-},
-{
-  path: '/register',
-  name: 'RegisterPage',
-  component: RegisterPage,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/logout',
-  name: 'logout',
-  component: Logout,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/beers',
-  name: 'beers',
-  component: Beers,
-  meta: {
-    rule: 'isPublic'
-  }
-},
-{
-  path: '/group/:groupId',
-  name: 'Group Details',
-  component: GroupDetail,
-  props: true,
-  meta: {
-    rule: 'isPublic'
-  }
-},
-{
-  path: '/beer/:beerId',
-  name: 'Beerdetails',
-  component: BeerDetail,
-  props: true,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/country/:countryId',
-  name: 'CountryDetail',
-  component: CountryDetail,
-  props: true,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/type/:typeId',
-  name: 'TypeBeerDetail',
-  component: TypeBeerDetail,
-  props: true,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/tasting/:tastingId',
-  name: 'TastingDetail',
-  component: TastingDetail,
-  props: true,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/admin',
-  name: 'admin',
-  component: Admin,
-  meta: {
-    rule: 'isAdmin'
-  }
-},
-{
-  path: '/admin/users',
-  name: 'userslist',
-  component: UsersList,
-  meta: {
-    rule: 'isAdmin'
-  }
-},
-{
-  path: '*',
-  name: 'error',
-  component: error,
-  meta: {
-    rule: '*'
-  }
-},
-{
-  path: '/admin/types',
-  name: 'typebeeradmin',
-  component: TypesBeerAdmin,
-  meta: {
-    rule: 'isAdmin'
-  }
-},
-{
-  path: '/admin/countries',
-  name: 'countriesadmin',
-  component: CountriesAdmin,
-  meta: {
-    rule: 'isAdmin'
-  }
-}
 ]
 
 const router = new VueRouter({

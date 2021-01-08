@@ -10,7 +10,7 @@ import comments from './comments'
 import users from './users'
 
 Vue.use(Vuex)
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
+axios.defaults.baseURL = 'http://dinnertime.dizajnstudio.eu/callofbeer/api'
 
 export default new Vuex.Store({
   modules: {
