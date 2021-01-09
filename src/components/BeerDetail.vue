@@ -17,57 +17,57 @@
 						></div>
 					</div>
 					<h2
-						class="m-4 text-warning"
+						class="mt-3 text-warning"
 						v-for="getBeer in getBeer"
 						:key="getBeer.id"
 						:beer="getBeer"
 					>
 						{{ getBeer.name }}
 					</h2>
-				</div>
-				<div class="d-flex flex-column text-center">
-					<hr class="dropdown-divider my-3" />
 
-					<ul
-						class="list-group my-3"
+					<div
+						class="text-center mb-2 mt-1 border-bottom pb-2"
 						v-for="getBeer in getBeer"
 						:key="getBeer.id"
 						:beer="getBeer"
 					>
-						<li class="list-group-item">
+						<p>{{ getBeer.description }}</p>
+					</div>
+					<div
+						v-for="getBeer in getBeer"
+						:key="getBeer.id"
+						:beer="getBeer"
+					>
+						<p style="font-size: 0.8rem">
 							Zawartość alkoholu:
 							{{ getBeer.alcohol_volume }} promila
-						</li>
-						<li class="list-group-item">
+						</p>
+					</div>
+					<div
+						v-for="getBeer in getBeer"
+						:key="getBeer.id"
+						:beer="getBeer"
+					>
+						<p class="mt-n3" style="font-size: 0.8rem">
 							Dodane przez: {{ getBeer.user.firstname }}
 							{{ getBeer.user.surname }}
-						</li>
-					</ul>
+						</p>
+					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-8">
+			<div class="col-12 col-md-8 mt-n3">
 				<div class="container-fluid">
 					<div class="row">
-						<div
-							class="col-12 d-flex flex-column"
-							v-for="getBeer in getBeer"
-							:key="getBeer.id"
-							:beer="getBeer"
-						>
-							<h5>Opis</h5>
-							<p>{{ getBeer.description }}</p>
-						</div>
-					</div>
-					<div class="row">
 						<div class="col-12 d-flex flex-column py-5">
-							<h5 class="mb-3">Oceny</h5>
+							<h3
+								class="mb-3"
+								v-for="getBeer in getBeer"
+								:key="getBeer.id"
+								:beer="getBeer"
+							>
+								Oceny piwa {{ getBeer.name }}
+							</h3>
 							<table class="table mb-5">
-								<thead>
-									<tr>
-										<th scope="col">Kryterium</th>
-										<th scope="col">Ocena</th>
-									</tr>
-								</thead>
 								<tbody
 									v-for="getBeer in getBeer"
 									:key="getBeer.id"
@@ -99,12 +99,10 @@
 									:key="getBeer.id"
 									:beer="getBeer"
 								>
-									<tr>
-										<th scope="col">Podsumowanie</th>
-										<th scope="col">
-											{{ getBeer.overall }}
-										</th>
-									</tr>
+									<th scope="col">Podsumowanie</th>
+									<th scope="col">
+										{{ getBeer.overall }}
+									</th>
 								</tfoot>
 							</table>
 						</div>
